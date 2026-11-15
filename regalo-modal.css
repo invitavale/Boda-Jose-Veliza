@@ -216,3 +216,7 @@
 .dc-sw { display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: .9rem; color: #4E4078; }
 .dc-sw i { position: relative; width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid rgba(130,112,180,.45); box-shadow: 0 3px 8px rgba(0,0,0,.12); overflow: hidden; }
 .dc-sw i::after { content: ""; position: absolute; left: -4px; right: -4px; top: 50%; height: 2.5px; background: #B33A3A; transform: rotate(-45deg); }
+
+/* Confirmación por WhatsApp */
+a.rg-option.rsvp-option { text-decoration: none; color: inherit; }
+.rsvp-wa { background: #25D366 !important; color: #FFFFFF !important; border-color: #25D366 !important; }

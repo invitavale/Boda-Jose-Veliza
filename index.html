@@ -4,28 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lucía & Héctor - Invitación de Boda</title>
-    <meta name="description" content="Te invitamos a celebrar nuestra boda el 13 de febrero de 2027 en Santiago de los Caballeros.">
+    <meta name="description" content="Sábado 13 de febrero de 2027 · Villa Palmar, Villa González · Ceremonia 5:00 PM · ¡Te esperamos! 💍">
 
     <!-- Vista previa al compartir el enlace (WhatsApp, Facebook, etc.) -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://invitavale.com/Boda-chanpam-2B/">
+    <meta property="og:url" content="https://invitavale.com/Boda-Lucia-Hector/">
     <meta property="og:title" content="Lucía & Héctor · ¡Nos casamos!">
-    <meta property="og:description" content="13 de febrero de 2027 · Santiago de los Caballeros · Te invitamos a celebrar nuestra boda 💍">
-    <meta property="og:image" content="https://invitavale.com/Boda-chanpam-2B/og-portada.jpg?v=5">
-    <meta property="og:image:secure_url" content="https://invitavale.com/Boda-chanpam-2B/og-portada.jpg?v=5">
+    <meta property="og:description" content="Sábado 13 de febrero de 2027 · Villa Palmar, Villa González · Ceremonia 5:00 PM · ¡Te esperamos! 💍">
+    <meta property="og:image" content="https://invitavale.com/Boda-Lucia-Hector/og-portada.jpg?v=5">
+    <meta property="og:image:secure_url" content="https://invitavale.com/Boda-Lucia-Hector/og-portada.jpg?v=5">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="es_DO">
+    <meta property="og:site_name" content="Invitavale">
+    <meta property="og:image:alt" content="Lucía y Héctor">
+    <meta name="twitter:title" content="Lucía &amp; Héctor · ¡Nos casamos!">
+    <meta name="twitter:description" content="Sábado 13 de febrero de 2027 · Villa Palmar, Villa González · Ceremonia 5:00 PM · ¡Te esperamos! 💍">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://invitavale.com/Boda-chanpam-2B/og-portada.jpg?v=5">
+    <meta name="twitter:image" content="https://invitavale.com/Boda-Lucia-Hector/og-portada.jpg?v=5">
     <link rel="preload" as="image" href="foto0.jpg?v=3">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://www.google.com">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Pinyon+Script&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=EB+Garamond:ital,wght@0,400..600;1,400..500&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="CCSB.css?v=38">
-    <link rel="stylesheet" href="regalo-modal.css?v=10">
+    <link rel="stylesheet" href="CCSB.css?v=41">
+    <link rel="stylesheet" href="regalo-modal.css?v=11">
         <style>
         /* Carrusel: 3 imágenes simultáneamente con foto central destacada */
         .carousel-track-container {
@@ -477,6 +481,98 @@
         .lh-item { display: flex; flex-direction: column; align-items: center; gap: 0.15rem; }
         .lh-label { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: #6B7A4B; }
         .lugar-horas .lugar-barra { align-self: stretch; }
+
+        /* ===== Indicador "Desliza" (mouse con ruedita que sube y baja) ===== */
+        .hero-scroll {
+            position: absolute; z-index: 5; left: 50%; bottom: calc(clamp(26px, 7vw, 64px) + 18px);
+            transform: translateX(-50%);
+            display: flex; flex-direction: column; align-items: center; gap: 6px;
+            pointer-events: none; opacity: 0; transition: opacity .6s ease;
+        }
+        body.hero-revealed .hero-scroll { animation: hsc-in 1s ease 3.4s forwards; }
+        body.scrolled .hero-scroll { opacity: 0 !important; animation: none; }
+        @keyframes hsc-in { to { opacity: 1; } }
+        .hsc-mouse {
+            position: relative; width: 24px; height: 38px; border-radius: 14px;
+            border: 2px solid rgba(255,255,255,.95);
+            box-shadow: 0 2px 10px rgba(46,35,82,.45);
+            animation: hsc-bob 2s ease-in-out infinite;
+        }
+        .hsc-wheel {
+            position: absolute; left: 50%; top: 7px; width: 4px; height: 8px; margin-left: -2px;
+            border-radius: 2px; background: #FFFFFF;
+            animation: hsc-wheel 1.6s ease-in-out infinite;
+        }
+        @keyframes hsc-wheel {
+            0%   { transform: translateY(0); opacity: 1; }
+            60%  { transform: translateY(12px); opacity: 0; }
+            61%  { transform: translateY(0); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes hsc-bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
+        .hsc-text {
+            font-family: 'Bodoni Moda', serif; font-size: .68rem; letter-spacing: .3em; text-transform: uppercase;
+            color: #FFFFFF; text-shadow: 0 1px 6px rgba(46,35,82,.6); padding-left: .3em;
+        }
+        /* En celular, subir un poco los nombres para dejar espacio al indicador */
+        .hero-names { bottom: max(150px, 19vh) !important; }
+
+        /* ===== Nombres y fecha a los lados de la foto ===== */
+        .hero-side { display: none; }
+        @media (min-aspect-ratio: 4/3) and (min-width: 900px) {
+            .hero-names { display: none !important; }
+            .hero-side {
+                display: flex; flex-direction: column; align-items: center; justify-content: center;
+                position: absolute; z-index: 4; top: 0; bottom: 0;
+                width: calc((100vw - 56.3vh) / 2); padding: 0 2.5vw; box-sizing: border-box;
+                text-align: center; color: #FFFFFF; pointer-events: none;
+                text-shadow: 0 2px 10px rgba(46,35,82,.55), 0 6px 26px rgba(46,35,82,.4);
+            }
+            .hero-side::before {
+                content: ""; position: absolute; inset: 0; z-index: -1;
+                background: rgba(78, 64, 120, .28);
+            }
+            .hero-side-izq { left: 0; }
+            .hero-side-der { right: 0; }
+            .hs-kicker { margin: 0 0 .5rem; font-family: 'Bodoni Moda', serif; text-transform: uppercase;
+                         letter-spacing: .42em; font-size: clamp(.8rem, 1.1vw, 1.05rem); }
+            .hs-names { margin: 0; font-family: 'Great Vibes', cursive; font-size: clamp(2.8rem, 5.2vw, 5.4rem);
+                        line-height: 1.05; display: flex; flex-direction: column; align-items: center; }
+            .hs-amp { font-size: .6em; color: #E4DCF2; margin: .05em 0; }
+            .hs-date { margin: 0; font-family: 'Bodoni Moda', serif; font-size: clamp(2.2rem, 4vw, 4.2rem); letter-spacing: .06em; }
+            .hs-line { display: block; height: 1.5px; width: 0; margin: 1rem auto;
+                       background: linear-gradient(90deg, transparent, #FFFFFF, transparent); }
+            .hs-phrase { margin: 0; max-width: 22rem; font-family: 'Cormorant Garamond', serif; font-style: italic;
+                         font-size: clamp(1rem, 1.4vw, 1.3rem); line-height: 1.5; }
+            .hero-side > * { opacity: 0; transform: translateY(18px); filter: blur(8px); }
+            body.hero-revealed .hero-side > * { animation: hn-in 1.4s cubic-bezier(.2,.7,.2,1) forwards; }
+            body.hero-revealed .hero-side > :nth-child(2) { animation-delay: .5s; }
+            body.hero-revealed .hero-side > :nth-child(4) { animation-delay: 1.2s; }
+            body.hero-revealed .hero-side .hs-line { opacity: 1; filter: none; transform: none; animation: ht-line-side 1.4s ease 1s forwards; }
+            @keyframes ht-line-side { to { width: min(70%, 220px); } }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .hsc-mouse, .hsc-wheel { animation: none; }
+        }
+
+        /* ===== Celular: nombres y fecha en el cielo (espacio vacío de la foto) ===== */
+        @media (max-aspect-ratio: 1/1) {
+            .hero-names {
+                top: max(64px, 8vh) !important; bottom: auto !important;
+                color: #4E4078 !important;
+                text-shadow: 0 0 12px rgba(255,255,255,.95), 0 0 2px rgba(255,255,255,.9) !important;
+            }
+            .hero-names::before {
+                top: -80px !important; bottom: auto !important; height: 360px !important;
+                background: linear-gradient(180deg, rgba(255,255,255,.55) 0%, rgba(255,255,255,.35) 55%, rgba(255,255,255,0) 100%) !important;
+            }
+            .hero-names .hn-kicker { color: #6B5A9E !important; font-weight: 600; }
+            .hero-names .hn-amp { color: #9A86CF !important; }
+            .hero-names .hn-line { background: linear-gradient(90deg, transparent, #7461A8, transparent) !important; box-shadow: none !important; }
+            .hero-names .hn-phrase { color: #4E4078 !important; font-weight: 500; }
+            .hero-names .hn-honor { color: #5E4B8B !important; }
+            .hero-names .hn-kicker, .hero-names .hn-names, .hero-names .hn-phrase { transform: translateY(-18px); }
+        }
     </style>
 </head>
 <body>
@@ -517,8 +613,26 @@
                 <p class="hn-kicker">Nos casamos</p>
                 <p class="hn-names">Lucía <span class="hn-amp">&amp;</span> Héctor</p>
                 <span class="hn-line"></span>
-                <p class="hn-phrase">13 · 02 · 27 &nbsp;·&nbsp; Santiago de los Caballeros</p>
+                <p class="hn-phrase">Sábado 13 · 02 · 27 &nbsp;·&nbsp; Villa Palmar</p>
                 <p class="hn-phrase hn-honor">Tenemos el honor de invitarte a celebrar nuestra boda</p>
+            </div>
+            <!-- Nombres y fecha a los lados de la foto (pantallas anchas) -->
+            <div class="hero-side hero-side-izq" aria-hidden="true">
+                <p class="hs-kicker">Nos casamos</p>
+                <p class="hs-names">Lucía<span class="hs-amp">&amp;</span>Héctor</p>
+                <span class="hs-line"></span>
+                <p class="hs-phrase">Tenemos el honor de invitarte a celebrar nuestra boda</p>
+            </div>
+            <div class="hero-side hero-side-der" aria-hidden="true">
+                <p class="hs-kicker">Sábado</p>
+                <p class="hs-date">13 · 02 · 27</p>
+                <span class="hs-line"></span>
+                <p class="hs-phrase">13 de febrero de 2027<br>Villa Palmar · Villa González<br>5:00 PM</p>
+            </div>
+            <!-- Indicador para deslizar -->
+            <div class="hero-scroll" id="heroScroll" aria-hidden="true">
+                <span class="hsc-mouse"><span class="hsc-wheel"></span></span>
+                <span class="hsc-text">Desliza</span>
             </div>
             <div class="hero-content">
                 <div class="hero-text">
@@ -595,7 +709,7 @@
         </section>
 
         <!-- Party Information -->
-        <div class="section-divider pincel a-claro" aria-hidden="true"></div>
+        <div class="section-divider pincel a-oscuro" aria-hidden="true"></div>
         <section class="party-section">
             <div class="party-container">
                 <h2 class="section-title">Detalles</h2>
@@ -616,13 +730,13 @@
                         </div>
                         <h3>Comparte tus Fotos</h3>
                         <p>Ayúdanos a capturar cada momento, sube las fotos que tomes durante la fiesta.</p>
-                        <button class="btn-wedding" onclick="sharePhotos()">Subir Fotos</button>
+                        <a class="btn-wedding" href="https://photos.app.goo.gl/z6J3dSgtu18hTh5G8" target="_blank" rel="noopener">Subir Fotos</a>
                     </div>
             </div>
         </section>
 
         <!-- Gifts -->
-        <div class="section-divider pincel a-oscuro" aria-hidden="true"></div>
+        <div class="section-divider pincel a-claro" aria-hidden="true"></div>
         <section class="gifts-section">
             <div class="gifts-container">
                 <h2 class="section-title">Regalos</h2>
@@ -637,7 +751,7 @@
         </section>
 
         <!-- RSVP -->
-        <div class="section-divider pincel a-claro" aria-hidden="true"></div>
+        <div class="section-divider pincel a-oscuro" aria-hidden="true"></div>
         <section class="rsvp-section">
             <div class="rsvp-container">
                 <h2 class="section-title">Confirma tu Asistencia</h2>
@@ -683,7 +797,7 @@
             } catch(e) {}
         })();
         </script>
-        <script src="JAVAB.js?v=29" defer></script>
-        <script src="regalo-modal.js?v=9" defer></script>
+        <script src="JAVAB.js?v=32" defer></script>
+        <script src="regalo-modal.js?v=10" defer></script>
 </body>
 </html>

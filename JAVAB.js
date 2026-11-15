@@ -388,10 +388,10 @@ function openLocation(location) {
 
 // Álbum compartido de Google Fotos (antes: https://photos.app.goo.gl/p9PGQHWrvLG1Bpj28)
 // PENDIENTE: álbum compartido de José y Beliza
-const PHOTO_ALBUM_URL = 'https://photos.google.com/';
+const PHOTO_ALBUM_URL = 'https://photos.app.goo.gl/z6J3dSgtu18hTh5G8';
 
 function sharePhotos() {
-    // Plantilla de muestra: el botón no abre nada
+    window.open(PHOTO_ALBUM_URL, '_blank', 'noopener');
 }
 
 // Código de vestimenta: imagen flotante (vive en regalo-modal.js)
@@ -421,7 +421,7 @@ function showGifts() {
 // Confirmación de asistencia (Google Form)
 // (antes: https://docs.google.com/forms/d/e/1FAIpQLSdIYoM33yAkMmS4DZCRVmO9_IE0gZT4eEw8cV0r2PgWlYE0Ag/viewform?usp=header)
 function confirmAttendance() {
-    // Plantilla de muestra: el botón no abre nada
+    if (window.openRsvpModal) window.openRsvpModal();
 }
 
 // Sistema de Toast
@@ -515,3 +515,8 @@ function initializeGuestGreeting() {
     clearCaches();
   }
 })();
+
+// Ocultar el indicador "Desliza" cuando la persona empieza a bajar
+window.addEventListener('scroll', function() {
+    document.body.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });

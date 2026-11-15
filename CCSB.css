@@ -3345,3 +3345,10 @@ body { font-family: 'EB Garamond', Georgia, serif; font-size: 1.15rem; }
     .hero-bg { z-index: 0; object-fit: contain !important; object-position: center center !important;
                box-shadow: 0 0 80px rgba(0,0,0,.35); }
 }
+
+/* Portada con foto de los novios: sin lucecitas encima de las caras */
+.hero-overlay { background: none !important; animation: none !important; }
+
+/* Desgarro sutil entre todas las secciones */
+.section-divider.pincel::before { height: clamp(26px, 7vw, 64px) !important; }
+a.btn-wedding { display: inline-block; text-decoration: none; }
