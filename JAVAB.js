@@ -377,8 +377,8 @@ document.addEventListener('DOMContentLoaded', () => {
 function openLocation(location) {
     const urls = {
         // PENDIENTE: poner los enlaces de Google Maps de los lugares reales
-        ceremony: 'https://www.google.com/maps/search/?api=1&query=Villa+Palmar+Palmar+Arriba+Villa+Gonzalez',
-        reception: 'https://www.google.com/maps/search/?api=1&query=Villa+Palmar+Palmar+Arriba+Villa+Gonzalez'
+        ceremony: 'https://maps.google.com/maps?q=19.5385417%2C-70.7472867&z=17&hl=es',
+        reception: 'https://maps.google.com/maps?q=19.5385417%2C-70.7472867&z=17&hl=es'
     };
     const url = urls[location];
     if (url) {
