@@ -143,7 +143,7 @@ function setupScrollReveal() {
 // Inicializar cuando el DOM esté listo
 // Calendario del mes de la boda con el día marcado (semana de lunes a domingo).
 // Para otra boda, basta con cambiar WEDDING_DATE.
-const WEDDING_DATE = { anio: 2027, mes: 1, dia: 13 }; // mes: 0 = enero
+const WEDDING_DATE = { anio: 2027, mes: 0, dia: 9 }; // mes: 0 = enero
 function renderCalendar() {
     const grid = document.getElementById('calGrid');
     const titulo = document.getElementById('calMes');
@@ -206,7 +206,7 @@ function updateMusicIcon() {
 
 // Countdown
 function initializeCountdown() {
-    const targetDate = new Date('2027-02-13T17:00:00-04:00').getTime();
+    const targetDate = new Date('2027-01-09T17:00:00-04:00').getTime();
     
     function updateCountdown() {
         const now = new Date().getTime();
